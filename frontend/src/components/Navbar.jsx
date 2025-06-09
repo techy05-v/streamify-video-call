@@ -3,7 +3,7 @@ import useAuthUser from '../hook/useAuthUser'
 import { Link, useLocation } from 'react-router-dom'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { logout } from '../lib/api.js'
-import { BellIcon, LogOutIcon, ShipWheelIcon } from 'lucide-react'
+import { BellIcon, HomeIcon, LogOutIcon, ShipWheelIcon } from 'lucide-react'
 import ThemeSelector from './ThemeSelector.jsx'
 
 const Navbar = () => {
@@ -25,22 +25,27 @@ const Navbar = () => {
                     isChatPage && (
                         <div className='pl-5'>
                             <Link to="/" className="flex items-center gap-2.5">
-                            <ShipWheelIcon className='size-9 text-primary'/>
-                            <span className='text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider'>
+                                <ShipWheelIcon className='size-9 text-primary' />
+                                <span className='text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider'>
 
-                            </span>
+                                </span>
                             </Link>
                         </div>
                     )
                 }
-                <div className='flex items-center gap-3 sm:gap-4 ml-auto'>
-                    <Link to="/notifications" >
-                    <button className='btn btn-ghost btn-circle'>
-                        <BellIcon className='size-6 text-base-content opacity-70' />
-                    </button>
+                <div className='sm:hidden pl-2'>
+                    <Link to="/" className="btn btn-ghost btn-circle">
+                        <HomeIcon className='size-6 text-base-content opacity-70' />
                     </Link>
                 </div>
-                <ThemeSelector/>
+                <div className='flex items-center gap-3 sm:gap-4 ml-auto'>
+                    <Link to="/notifications" >
+                        <button className='btn btn-ghost btn-circle'>
+                            <BellIcon className='size-6 text-base-content opacity-70' />
+                        </button>
+                    </Link>
+                </div>
+                <ThemeSelector />
 
                 <div className='avatar'>
                     <div className='w-9 rounded-full'>
@@ -48,7 +53,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <button className='btn btn-ghost btn-circle' onClick={logoutMutation}>
-                    <LogOutIcon className='size-6 text-base-content opacity-70'/>
+                    <LogOutIcon className='size-6 text-base-content opacity-70' />
                 </button>
             </div>
         </div>
